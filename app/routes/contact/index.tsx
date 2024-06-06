@@ -33,7 +33,7 @@ export default function Page() {
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" required />
           <label htmlFor="message">Message</label>
-          <textarea id="message" name="message" required></textarea>
+          <textarea id="message" name="message" required rows={5}></textarea>
           <button type="submit">Submit</button>
         </fieldset>
       </form>
