@@ -4,6 +4,8 @@ import type { LinksFunction } from "@remix-run/node";
 import globalStyles from "../global.css?url";
 import pageStyles from "./index.css?url";
 
+import imgSrc from "../assets/fish-light.png";
+
 export const meta: MetaFunction = () => {
   return [
     { title: "Tanner Gaucher" },
@@ -33,7 +35,11 @@ export default function Index() {
         <h1>Tanner Gaucher</h1>
         <h2>Full Stack Software Developer</h2>
       </section>
-      <img className="hero-image" alt="Grainy B&W koi fish in Japan" />
+      <img
+        src={imgSrc}
+        className="hero-image"
+        alt="Grainy B&W koi fish in Japan"
+      />
       <p className="bio">
         Based in Brooklyn, New York. Current location Hanoi, Vietnam. Passionate
         generalist, equally comfortable solving problems on both sides of the
