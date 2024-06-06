@@ -112,11 +112,12 @@ button:hover {
 input,
 textarea {
   padding: calc(var(--space-1) / 2);
-  font-family: var(--text-family);
+  font-family: var(--heading-family);
   font-size: large;
   border: var(--thickness) solid var(--text-color);
   border-radius: var(--radius);
   background-color: var(--bg-2);
+  color: var(--text-color);
 }
 
 input:hover,
