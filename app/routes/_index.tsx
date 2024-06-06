@@ -35,11 +35,10 @@ export default function Index() {
       </section>
       <img className="hero-image" alt="Grainy B&W koi fish in Japan" />
       <p className="bio">
-        Based in Brooklyn, New York. Current location Hanoi, Vietnam. Generalist
-        developer, equally comfortable working on both sides of the stack. Other
-        computational interests include history of computer science and
-        exploring parallels between computation and the natural world. Is
-        information theory more fundamental than physics?
+        Based in Brooklyn, New York. Current location Hanoi, Vietnam. Passionate
+        generalist, equally comfortable solving problems on both sides of the
+        stack. Other computational interests include history of computer science
+        and exploring parallels between computation and the natural world.
       </p>
     </main>
   );
