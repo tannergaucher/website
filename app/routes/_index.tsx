@@ -40,6 +40,15 @@ export default function Index() {
               <h3>Contact</h3>
             </Link>
           </li>
+          <li>
+            <a
+              href="https://github.com/tannergaucher"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <h3>Github</h3>
+            </a>
+          </li>
         </ul>
       </section>
       <img
