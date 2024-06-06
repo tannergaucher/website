@@ -81,7 +81,7 @@ label {
 }
 
 fieldset {
-  border: var(--thickness) solid var(--text-color);
+  border: var(--thickness) dotted var(--text-color);
   border-radius: var(--radius);
   padding: var(--space-1);
   display: flex;
@@ -97,7 +97,7 @@ button {
   background-color: var(--accent-color);
   color: var(--bg-1);
   font-size: large;
-  border: var(--thickness) solid var(--accent-color);
+  border: var(--thickness) dotted var(--accent-color);
   border-radius: var(--radius);
   transition: background-color 0.2s, color 0.2s;
   font-weight: bolder;
@@ -116,7 +116,7 @@ textarea {
   padding: calc(var(--space-1) / 2);
   font-family: var(--heading-family);
   font-size: large;
-  border: var(--thickness) solid var(--text-color);
+  border: var(--thickness) dotted var(--text-color);
   border-radius: var(--radius);
   background-color: var(--bg-2);
   color: var(--text-color);
