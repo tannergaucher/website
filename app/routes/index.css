@@ -11,6 +11,7 @@ img {
   grid-area: "image";
   align-self: center;
   justify-self: center;
+  border-radius: var(--radius);
 }
 
 .intro {

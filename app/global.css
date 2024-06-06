@@ -6,10 +6,10 @@
   --text-color: black;
   --accent-color: rebeccapurple;
   --space-1: 2rem;
-  --thickness: 1.5px;
+  --thickness: 2.5px;
   --heading-family: "Outfit", sans-serif;
   --text-family: "Spline Sans", sans-serif;
-  --radius: 0.5rem;
+  --radius: 0rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,7 +58,8 @@ main {
 }
 
 h1,
-h2 {
+h2,
+h3 {
   margin-top: 0;
   margin-bottom: var(--space-1);
   font-family: var(--heading-family);
