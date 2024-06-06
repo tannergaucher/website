@@ -74,13 +74,14 @@ legend {
 
 label {
   margin-block: var(--space-1);
-  font-family: var(--text-family);
   font-size: large;
 }
 
 fieldset {
   border: var(--thickness) solid var(--text-color);
   padding: var(--space-1);
+  display: flex;
+  flex-direction: column;
 }
 
 button {
@@ -91,11 +92,16 @@ button {
   color: var(--bg-1);
   font-size: large;
   border: var(--thickness) solid var(--accent-color);
+  transition: background-color 0.2s, color 0.2s;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-family: var(--heading-family);
 }
 
 button:hover {
   background-color: var(--bg-1);
   color: var(--accent-color);
+  transition: background-color 0.2s, color 0.2s;
 }
 
 input,
@@ -104,6 +110,7 @@ textarea {
   font-family: var(--text-family);
   font-size: large;
   border: var(--thickness) solid var(--text-color);
+  background-color: var(--bg-2);
 }
 
 input:hover,
