@@ -11,6 +11,7 @@ img {
   grid-area: "image";
   align-self: center;
   justify-self: center;
+  border-radius: var(--radius);
 }
 
 .intro {
@@ -61,4 +62,10 @@ img {
   .hero-image {
     content: url("../assets/fish-dark.png");
   }
+}
+
+ul {
+  list-style: none;
+  margin-block-start: 0;
+  padding-inline-start: 0;
 }
