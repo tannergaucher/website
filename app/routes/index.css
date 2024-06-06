@@ -1,0 +1,64 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "intro image bio";
+  grid-gap: var(--space-1);
+  align-items: center;
+}
+
+img {
+  max-width: 275px;
+  grid-area: "image";
+  align-self: center;
+  justify-self: center;
+}
+
+.intro {
+  grid-area: "intro";
+  align-self: start;
+}
+
+.bio {
+  line-height: 1.5;
+  grid-area: "bio";
+  align-self: end;
+}
+
+.bio {
+  max-width: 250px;
+  justify-self: end;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: none;
+    grid-template-areas:
+      "image"
+      "intro"
+      "bio";
+  }
+
+  .intro {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .bio {
+    justify-self: center;
+    text-align: start;
+  }
+
+  img {
+    justify-self: center;
+  }
+}
+
+.hero-image {
+  content: url("../assets/fish-light.png");
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-image {
+    content: url("../assets/fish-dark.png");
+  }
+}

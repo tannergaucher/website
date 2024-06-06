@@ -1,41 +1,46 @@
-import type { MetaFunction } from "@netlify/remix-runtime";
+import { MetaFunction } from "@remix-run/react";
+import type { LinksFunction } from "@remix-run/node";
+
+import globalStyles from "../global.css?url";
+import pageStyles from "./index.css?url";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
+    { title: "Tanner Gaucher" },
+    {
+      name: "description",
+      content: "Welcome to my personal site!",
+    },
+  ];
+};
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: globalStyles },
+    { rel: "stylesheet", href: pageStyles },
+    {
+      rel: "preconnect",
+      href: "https://fonts.gstatic.com",
+      crossOrigin: "anonymous",
+    },
   ];
 };
 
 export default function Index() {
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
-    </div>
+    <main>
+      <section className="intro">
+        <h1>Tanner Gaucher</h1>
+        <h2>Full Stack Software Developer</h2>
+      </section>
+      <img className="hero-image" alt="Grainy B&W koi fish in Japan" />
+      <p className="bio">
+        Based in Brooklyn, New York. Current location Hanoi, Vietnam. Generalist
+        developer, equally comfortable working on both sides of the stack. Other
+        computational interests include history of computer science and
+        exploring parallels between computation and the natural world. Is
+        information theory more fundamental than physics?
+      </p>
+    </main>
   );
 }
