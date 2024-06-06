@@ -1,4 +1,4 @@
-import { MetaFunction } from "@remix-run/react";
+import { MetaFunction, Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
 import globalStyles from "../global.css?url";
@@ -34,6 +34,13 @@ export default function Index() {
       <section className="intro">
         <h1>Tanner Gaucher</h1>
         <h2>Full Stack Software Developer</h2>
+        <ul>
+          <li>
+            <Link to="/contact">
+              <h3>Contact</h3>
+            </Link>
+          </li>
+        </ul>
       </section>
       <img
         src={imgSrc}
