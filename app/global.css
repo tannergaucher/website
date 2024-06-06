@@ -9,6 +9,7 @@
   --thickness: 1.5px;
   --heading-family: "Outfit", sans-serif;
   --text-family: "Spline Sans", sans-serif;
+  --radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,6 +52,7 @@ body {
 
 main {
   border: var(--thickness) solid var(--text-color);
+  border-radius: var(--radius);
   min-height: calc(100vh - 4 * var(--space-1) - 2 * var(--thickness));
   padding: var(--space-1);
 }
@@ -79,6 +81,7 @@ label {
 
 fieldset {
   border: var(--thickness) solid var(--text-color);
+  border-radius: var(--radius);
   padding: var(--space-1);
   display: flex;
   flex-direction: column;
@@ -92,6 +95,7 @@ button {
   color: var(--bg-1);
   font-size: large;
   border: var(--thickness) solid var(--accent-color);
+  border-radius: var(--radius);
   transition: background-color 0.2s, color 0.2s;
   font-weight: bolder;
   text-transform: uppercase;
@@ -110,6 +114,7 @@ textarea {
   font-family: var(--text-family);
   font-size: large;
   border: var(--thickness) solid var(--text-color);
+  border-radius: var(--radius);
   background-color: var(--bg-2);
 }
 

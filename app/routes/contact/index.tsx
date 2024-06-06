@@ -23,7 +23,9 @@ export default function Page() {
       <h2>Contact</h2>
       <form>
         <fieldset>
-          <legend>Get in Touch</legend>
+          <em>
+            <legend>Get in touch</legend>
+          </em>
           <label htmlFor="name">Name</label>
           <input type="text" id="name" name="name" required />
           <label htmlFor="email">Email</label>
