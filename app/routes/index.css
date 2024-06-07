@@ -7,7 +7,7 @@ main {
 }
 
 img {
-  max-width: 275px;
+  max-width: 100%;
   grid-area: "image";
   align-self: center;
   justify-self: center;
