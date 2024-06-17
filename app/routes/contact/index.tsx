@@ -23,7 +23,7 @@ export default function Page() {
       </Link>
       <h2>Contact</h2>
       {/* @ts-expect-error  netlify form attribute */}
-      <form netlify>
+      <form netlify name="contact-form">
         <fieldset>
           <em>
             <legend>Get in touch</legend>
