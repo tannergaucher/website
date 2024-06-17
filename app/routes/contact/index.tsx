@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import { Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
@@ -22,8 +21,7 @@ export default function Page() {
         <h1>Tanner Gaucher</h1>
       </Link>
       <h2>Contact</h2>
-      {/* @ts-expect-error  netlify form attribute */}
-      <form netlify name="contact-form">
+      <form name="contact-form" method="POST" data-netlify>
         <fieldset>
           <em>
             <legend>Get in touch</legend>
