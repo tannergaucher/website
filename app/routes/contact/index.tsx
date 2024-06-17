@@ -1,5 +1,6 @@
 import { Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
+import { ActionFunction } from "@remix-run/node";
 
 import globalStyles from "~/global.css?url";
 
@@ -12,6 +13,25 @@ export const links: LinksFunction = () => {
       crossOrigin: "anonymous",
     },
   ];
+};
+
+export const action: ActionFunction = async ({ request }) => {
+  const data = new URLSearchParams(await request.text());
+
+  await fetch("/", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: data,
+  }).catch((error) => {
+    console.error(error);
+  });
+
+  return new Response(null, {
+    status: 303,
+    headers: {
+      Location: "/",
+    },
+  });
 };
 
 export default function Page() {
