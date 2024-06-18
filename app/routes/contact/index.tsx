@@ -1,6 +1,5 @@
 import { Link } from "@remix-run/react";
-import type { LinksFunction } from "@remix-run/node";
-import { ActionFunction } from "@remix-run/node";
+import type { ActionFunctionArgs, LinksFunction } from "@remix-run/node";
 
 import globalStyles from "~/global.css?url";
 
@@ -15,23 +14,16 @@ export const links: LinksFunction = () => {
   ];
 };
 
-export const action: ActionFunction = async ({ request }) => {
-  const data = new URLSearchParams(await request.text());
+export const action = async ({ request }: ActionFunctionArgs) => {
+  const formData = await request.formData();
 
-  await fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: data,
-  }).catch((error) => {
-    console.error(error);
-  });
+  const name = formData.get("name") as string;
+  const email = formData.get("email") as string;
+  const message = formData.get("message") as string;
 
-  return new Response(null, {
-    status: 303,
-    headers: {
-      Location: "/",
-    },
-  });
+  console.log({ name, email, message });
+
+  return null;
 };
 
 export default function Page() {
@@ -41,7 +33,12 @@ export default function Page() {
         <h1>Tanner Gaucher</h1>
       </Link>
       <h2>Contact</h2>
-      <form name="contact-form" method="POST" data-netlify>
+      <form
+        name="contact-form"
+        method="POST"
+        action="/contact/?index"
+        data-netlify
+      >
         <fieldset>
           <em>
             <legend>Get in touch</legend>
