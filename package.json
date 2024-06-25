@@ -17,6 +17,7 @@
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
+    "@sanity/cli": "^3.47.1",
     "isbot": "^4.1.0"
   },
   "devDependencies": {
