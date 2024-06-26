@@ -57,7 +57,7 @@ export default function Page() {
           </Link>
         ))}
       </div>
-      <Outlet />
+      <Outlet context={collection.photos} />
     </main>
   );
 }
