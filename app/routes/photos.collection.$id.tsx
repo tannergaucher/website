@@ -1,7 +1,13 @@
-import { LoaderFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { LoaderFunction, LinksFunction } from "@remix-run/node";
+import { useLoaderData, Link } from "@remix-run/react";
 
 import { getPhotoCollectionById } from "~/models/photo-collection.server";
+
+import globalStyles from "~/global.css?url";
+
+export const links: LinksFunction = () => {
+  return [{ rel: "stylesheet", href: globalStyles }];
+};
 
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.id) throw new Error("No id provided");
@@ -21,7 +27,11 @@ export default function Page() {
   const { collection } = useLoaderData<LoaderData>();
 
   return (
-    <div>
+    <main>
+      <h1>
+        <Link to="/">Tanner Gaucher</Link> {">"}{" "}
+        <Link to="/photos">Photos</Link>
+      </h1>
       <h1>{collection.title}</h1>
       <p>{collection.description}</p>
       {collection.photos.map((photo) => (
@@ -34,6 +44,6 @@ export default function Page() {
           }}
         />
       ))}
-    </div>
+    </main>
   );
 }
