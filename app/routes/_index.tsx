@@ -1,8 +1,8 @@
 import { MetaFunction, Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
-import globalStyles from "~/styles/global.css";
-import pageStyles from "~/styles/index-page.css";
+import globalStyles from "~/styles/global.css?url";
+import pageStyles from "~/styles/index-page.css?url";
 
 import imgSrc from "../assets/fish-light.png";
 

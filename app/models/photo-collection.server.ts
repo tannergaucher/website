@@ -7,7 +7,9 @@ const builder = imageUrlBuilder(client);
 interface PhotoCollection {
   _id: string;
   title: string;
-  slug: string;
+  slug: {
+    current: string;
+  };
   description?: string;
   coverImage: {
     image: {
@@ -58,26 +60,47 @@ export async function getPhotoCollections() {
     });
 }
 
-export async function getPhotoCollectionById({ id }: { id: string }) {
+export async function getPhotoCollectionBySlug({ slug }: { slug: string }) {
   const [collection] = await client.fetch<PhotoCollection[]>(
-    `*[_type == 'collection' && _id == $id]{
+    `*[_type == 'collection' && slug.current == $slug]{
       _id,
       title,
       slug,
       description,
       photos[]->,
     }`,
-    { id }
+    { slug }
   );
 
   return {
     ...collection,
     photos: collection.photos.map((photo) => {
-      console.log(photo, "photo");
       return {
         ...photo,
         image: builder.image(photo.image.asset._ref).url(),
       };
     }),
+  };
+}
+
+export async function getPhotoBySlug({ slug }: { slug: string }) {
+  console.log(slug, "_slug");
+
+  const [photo] = await client.fetch<PhotoCollection["photos"]>(
+    `*[_type == 'photo' && slug.current == $slug]{
+      _id,
+      title,
+      slug,
+      image,
+      caption,
+    }`,
+    { slug }
+  );
+
+  console.log(photo, "_photo");
+
+  return {
+    ...photo,
+    image: builder.image(photo.image.asset._ref).url(),
   };
 }

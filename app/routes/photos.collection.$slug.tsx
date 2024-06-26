@@ -1,10 +1,10 @@
 import { LoaderFunction, LinksFunction } from "@remix-run/node";
-import { useLoaderData, Link } from "@remix-run/react";
+import { useLoaderData, Link, Outlet } from "@remix-run/react";
 
-import { getPhotoCollectionById } from "~/models/photo-collection.server";
+import { getPhotoCollectionBySlug } from "~/models/photo-collection.server";
 
-import globalStyles from "~/styles/global.css";
-import pageStyles from "~/styles/photos-collection-page.css";
+import globalStyles from "~/styles/global.css?url";
+import pageStyles from "~/styles/photos-collection-page.css?url";
 
 export const links: LinksFunction = () => {
   return [
@@ -17,9 +17,9 @@ export const links: LinksFunction = () => {
 };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  if (!params.id) throw new Error("No id provided");
+  if (!params.slug) throw new Error("No id provided");
 
-  const collection = await getPhotoCollectionById({ id: params.id });
+  const collection = await getPhotoCollectionBySlug({ slug: params.slug });
 
   return {
     collection,
@@ -27,13 +27,11 @@ export const loader: LoaderFunction = async ({ params }) => {
 };
 
 type LoaderData = {
-  collection: Awaited<ReturnType<typeof getPhotoCollectionById>>;
+  collection: Awaited<ReturnType<typeof getPhotoCollectionBySlug>>;
 };
 
 export default function Page() {
   const { collection } = useLoaderData<LoaderData>();
-
-  console.log(collection, "collection");
 
   return (
     <main>
@@ -46,7 +44,7 @@ export default function Page() {
       <div className="photos-grid">
         {collection.photos.map((photo) => (
           <Link
-            to={`/photos/collection/${collection._id}/${photo.slug.current}`}
+            to={`/photos/collection/${collection.slug.current}/photo/${photo.slug.current}`}
             key={photo.image}
           >
             <img
@@ -59,6 +57,7 @@ export default function Page() {
           </Link>
         ))}
       </div>
+      <Outlet />
     </main>
   );
 }

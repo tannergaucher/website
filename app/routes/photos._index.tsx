@@ -3,8 +3,8 @@ import { useLoaderData, Link } from "@remix-run/react";
 
 import { getPhotoCollections } from "~/models/photo-collection.server";
 
-import globalStyles from "~/styles/global.css";
-import pageStyles from "~/styles/photos-page.css";
+import globalStyles from "~/styles/global.css?url";
+import pageStyles from "~/styles/photos-page.css?url";
 
 export const links: LinksFunction = () => {
   return [
@@ -37,7 +37,7 @@ export default function Page() {
       <div className="collections-grid">
         {data.collections.map((collection) => (
           <Link
-            to={`/photos/collection/${collection._id}`}
+            to={`/photos/collection/${collection.slug.current}`}
             key={collection._id}
           >
             <img
