@@ -4,7 +4,7 @@ import { client } from "~/sanity-client";
 
 const builder = imageUrlBuilder(client);
 
-interface PhotoCollection {
+export interface PhotoCollection {
   _id: string;
   title: string;
   slug: {
@@ -84,8 +84,6 @@ export async function getPhotoCollectionBySlug({ slug }: { slug: string }) {
 }
 
 export async function getPhotoBySlug({ slug }: { slug: string }) {
-  console.log(slug, "_slug");
-
   const [photo] = await client.fetch<PhotoCollection["photos"]>(
     `*[_type == 'photo' && slug.current == $slug]{
       _id,
@@ -96,8 +94,6 @@ export async function getPhotoBySlug({ slug }: { slug: string }) {
     }`,
     { slug }
   );
-
-  console.log(photo, "_photo");
 
   return {
     ...photo,
