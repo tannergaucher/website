@@ -56,28 +56,24 @@ export async function getPhotoCollections() {
 }
 
 export async function getPhotoCollectionById({ id }: { id: string }) {
-  return await client
-    .fetch<PhotoCollection[]>(
-      `*[_type == 'collection' && _id == $id]{
-     _id,
-     title,
-     slug,
-     description,
-     photos[]->,
-     }`,
-      { id }
-    )
-    .then((collections) => {
-      return collections.map((collection) => {
-        return {
-          ...collection,
-          photos: collection.photos.map((photo) => {
-            return {
-              ...photo,
-              image: builder.image(photo.image.asset._ref).url(),
-            };
-          }),
-        };
-      });
-    });
+  const [collection] = await client.fetch<PhotoCollection[]>(
+    `*[_type == 'collection' && _id == $id]{
+      _id,
+      title,
+      slug,
+      description,
+      photos[]->,
+    }`,
+    { id }
+  );
+
+  return {
+    ...collection,
+    photos: collection.photos.map((photo) => {
+      return {
+        ...photo,
+        image: builder.image(photo.image.asset._ref).url(),
+      };
+    }),
+  };
 }
