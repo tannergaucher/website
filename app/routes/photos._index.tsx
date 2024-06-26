@@ -4,9 +4,16 @@ import { useLoaderData, Link } from "@remix-run/react";
 import { getPhotoCollections } from "~/models/photo-collection.server";
 
 import globalStyles from "~/styles/global.css";
+import pageStyles from "~/styles/photos-page.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: globalStyles }];
+  return [
+    { rel: "stylesheet", href: globalStyles },
+    {
+      rel: "stylesheet",
+      href: pageStyles,
+    },
+  ];
 };
 
 type LoaderData = {
@@ -27,23 +34,24 @@ export default function Page() {
       <h1>
         <Link to="/">Tanner Gaucher</Link> {">"} Photos
       </h1>
-      <ul>
+      <div className="collections-grid">
         {data.collections.map((collection) => (
-          <li key={collection._id}>
-            <Link to={`/photos/collection/${collection._id}`}>
-              <img
-                src={collection.coverImage}
-                alt={collection.title}
-                style={{
-                  width: "500px",
-                }}
-              />
-              <h2>{collection.title}</h2>
-              <p>{collection.description}</p>
-            </Link>
-          </li>
+          <Link
+            to={`/photos/collection/${collection._id}`}
+            key={collection._id}
+          >
+            <img
+              src={collection.coverImage}
+              alt={collection.title}
+              style={{
+                width: "500px",
+              }}
+            />
+            <p>{collection.title}</p>
+            <small>{collection.description}</small>
+          </Link>
         ))}
-      </ul>
+      </div>
     </main>
   );
 }

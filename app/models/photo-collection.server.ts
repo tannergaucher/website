@@ -17,6 +17,9 @@ interface PhotoCollection {
     };
   };
   photos: {
+    slug: {
+      current: string;
+    };
     image: {
       asset: {
         _ref: string;
@@ -70,6 +73,7 @@ export async function getPhotoCollectionById({ id }: { id: string }) {
   return {
     ...collection,
     photos: collection.photos.map((photo) => {
+      console.log(photo, "photo");
       return {
         ...photo,
         image: builder.image(photo.image.asset._ref).url(),

@@ -4,9 +4,16 @@ import { useLoaderData, Link } from "@remix-run/react";
 import { getPhotoCollectionById } from "~/models/photo-collection.server";
 
 import globalStyles from "~/styles/global.css";
+import pageStyles from "~/styles/photos-collection-page.css";
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: globalStyles }];
+  return [
+    { rel: "stylesheet", href: globalStyles },
+    {
+      rel: "stylesheet",
+      href: pageStyles,
+    },
+  ];
 };
 
 export const loader: LoaderFunction = async ({ params }) => {
@@ -26,6 +33,8 @@ type LoaderData = {
 export default function Page() {
   const { collection } = useLoaderData<LoaderData>();
 
+  console.log(collection, "collection");
+
   return (
     <main>
       <h1>
@@ -34,16 +43,22 @@ export default function Page() {
       </h1>
       <h1>{collection.title}</h1>
       <p>{collection.description}</p>
-      {collection.photos.map((photo) => (
-        <img
-          key={photo.image}
-          src={photo.image}
-          alt={collection.title}
-          style={{
-            width: "500px",
-          }}
-        />
-      ))}
+      <div className="photos-grid">
+        {collection.photos.map((photo) => (
+          <Link
+            to={`/photos/collection/${collection._id}/${photo.slug.current}`}
+            key={photo.image}
+          >
+            <img
+              src={photo.image}
+              alt={collection.title}
+              style={{
+                width: "500px",
+              }}
+            />
+          </Link>
+        ))}
+      </div>
     </main>
   );
 }

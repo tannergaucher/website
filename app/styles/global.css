@@ -9,7 +9,7 @@
   --thickness: 2.5px;
   --heading-family: "Outfit", sans-serif;
   --text-family: "Spline Sans", sans-serif;
-  --radius: 0rem;
+  --radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -152,4 +152,8 @@ input[type="radio"] {
 .theme-buttons input:checked {
   background-color: #000;
   color: #fff;
+}
+
+small {
+  font-weight: lighter;
 }
