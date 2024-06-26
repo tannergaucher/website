@@ -3,7 +3,7 @@ import { useLoaderData, Link } from "@remix-run/react";
 
 import { getPhotoCollections } from "~/models/photo-collection.server";
 
-import globalStyles from "~/global.css?url";
+import globalStyles from "~/styles/global.css";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStyles }];
@@ -31,8 +31,6 @@ export default function Page() {
         {data.collections.map((collection) => (
           <li key={collection._id}>
             <Link to={`/photos/collection/${collection._id}`}>
-              <h2>{collection.title}</h2>
-              <p>{collection.description}</p>
               <img
                 src={collection.coverImage}
                 alt={collection.title}
@@ -40,6 +38,8 @@ export default function Page() {
                   width: "500px",
                 }}
               />
+              <h2>{collection.title}</h2>
+              <p>{collection.description}</p>
             </Link>
           </li>
         ))}

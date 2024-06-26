@@ -3,7 +3,7 @@ import { useLoaderData, Link } from "@remix-run/react";
 
 import { getPhotoCollectionById } from "~/models/photo-collection.server";
 
-import globalStyles from "~/global.css?url";
+import globalStyles from "~/styles/global.css";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStyles }];
