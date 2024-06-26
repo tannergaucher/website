@@ -13,3 +13,10 @@ a {
   text-decoration: none;
   color: var(--text-color);
 }
+
+article {
+  background-color: var(--bg-2);
+  border-radius: var(--radius);
+  padding: var(--space-1);
+  box-shadow: var(--shadow);
+}

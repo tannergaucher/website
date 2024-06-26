@@ -41,6 +41,7 @@ export default function Page() {
       </h1>
       <h1>{collection.title}</h1>
       <p>{collection.description}</p>
+      <hr />
       <div className="photos-grid">
         {collection.photos.map((photo) => (
           <Link

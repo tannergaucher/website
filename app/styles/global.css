@@ -10,6 +10,7 @@
   --heading-family: "Outfit", sans-serif;
   --text-family: "Spline Sans", sans-serif;
   --radius: 0.5rem;
+  --shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -156,4 +157,11 @@ input[type="radio"] {
 
 small {
   font-weight: lighter;
+}
+
+hr {
+  border: none;
+  border-top: var(--thickness) solid var(--text-color);
+  margin-block: var(--space-1);
+  border-radius: var(--radius);
 }

@@ -1,10 +1,10 @@
 .photos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: var(--space-1);
 }
 
 .photos-grid img {
   max-width: 100%;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
 }

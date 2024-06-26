@@ -40,15 +40,17 @@ export default function Page() {
             to={`/photos/collection/${collection.slug.current}`}
             key={collection._id}
           >
-            <img
-              src={collection.coverImage}
-              alt={collection.title}
-              style={{
-                width: "500px",
-              }}
-            />
-            <p>{collection.title}</p>
-            <small>{collection.description}</small>
+            <article>
+              <img
+                src={collection.coverImage}
+                alt={collection.title}
+                style={{
+                  width: "500px",
+                }}
+              />
+              <p>{collection.title}</p>
+              <small>{collection.description}</small>
+            </article>
           </Link>
         ))}
       </div>
