@@ -111,7 +111,7 @@ export default function Page() {
             backgroundColor: "var(--bg-2)",
             padding: "var(--space-1)",
             borderRadius: "var(--radius)",
-            boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+            boxShadow: "var(--shadow)",
           }}
         >
           <img
@@ -120,6 +120,8 @@ export default function Page() {
             style={{
               width: "100%",
               height: "auto",
+              borderRadius: "var(--radius)",
+              boxShadow: "var(--shadow)",
             }}
           />
         </DialogPanel>
