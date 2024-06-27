@@ -10,7 +10,6 @@ img {
   max-width: 100%;
   grid-area: "image";
   align-self: center;
-  justify-self: center;
   border-radius: var(--radius);
 }
 
@@ -23,14 +22,20 @@ img {
   line-height: 1.5;
   grid-area: "bio";
   align-self: end;
-}
-
-.bio {
   max-width: 250px;
-  justify-self: end;
 }
 
-@media (max-width: 768px) {
+.hero-image {
+  content: url("../assets/fish-light.png");
+}
+
+@media (prefers-color-scheme: dark) {
+  .hero-image {
+    content: url("../assets/fish-dark.png");
+  }
+}
+
+@media (width <= 768px) {
   main {
     grid-template-columns: none;
     grid-template-areas:
@@ -51,16 +56,6 @@ img {
 
   img {
     justify-self: center;
-  }
-}
-
-.hero-image {
-  content: url("../assets/fish-light.png");
-}
-
-@media (prefers-color-scheme: dark) {
-  .hero-image {
-    content: url("../assets/fish-dark.png");
   }
 }
 
