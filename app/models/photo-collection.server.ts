@@ -47,6 +47,8 @@ export async function getPhotoCollections() {
           ...collection,
           coverImage: builder
             .image(collection.coverImage.image.asset._ref)
+            .width(600)
+            .quality(100)
             .url(),
         };
       });
