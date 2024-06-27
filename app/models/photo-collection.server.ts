@@ -49,6 +49,7 @@ export async function getPhotoCollections() {
             .image(collection.coverImage.image.asset._ref)
             .width(600)
             .quality(100)
+            .format("webp")
             .url(),
         };
       });
