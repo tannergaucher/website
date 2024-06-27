@@ -17,9 +17,11 @@ export const links: LinksFunction = () => {
 };
 
 export const loader: LoaderFunction = async ({ params }) => {
-  if (!params.slug) throw new Error("No id provided");
+  if (!params.collectionSlug) throw new Error("No id provided");
 
-  const collection = await getPhotoCollectionBySlug({ slug: params.slug });
+  const collection = await getPhotoCollectionBySlug({
+    slug: params.collectionSlug,
+  });
 
   return {
     collection,

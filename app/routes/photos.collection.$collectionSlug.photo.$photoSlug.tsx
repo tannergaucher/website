@@ -73,7 +73,7 @@ export default function Page() {
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const photoSlug = params.photoSlug;
-      const collectionSlug = params.slug;
+      const collectionSlug = params.collectionSlug;
 
       if (!photoSlug || !collectionSlug) return;
 
@@ -109,7 +109,7 @@ export default function Page() {
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
     };
-  }, [context, navigate, params.photoSlug, params.slug]);
+  }, [context, navigate, params.photoSlug, params.collectionSlug]);
 
   // handle swipe left and right to navigate between photos
   useEffect(() => {
@@ -117,7 +117,7 @@ export default function Page() {
     let endX: number;
 
     const photoSlug = params.photoSlug;
-    const collectionSlug = params.slug;
+    const collectionSlug = params.collectionSlug;
 
     if (!photoSlug || !collectionSlug) return;
 
@@ -171,7 +171,7 @@ export default function Page() {
       window.removeEventListener("touchmove", handleTouchMove);
       window.removeEventListener("touchend", handleTouchEnd);
     };
-  }, [context, navigate, params.photoSlug, params.slug]);
+  }, [context, navigate, params.photoSlug, params.collectionSlug]);
 
   return (
     <div>
