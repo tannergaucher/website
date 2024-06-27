@@ -39,7 +39,6 @@ export async function getPhotoCollections() {
      slug,
      description,
      coverImage->,
-     photos[]->,
      }`
     )
     .then((collections) => {
@@ -49,12 +48,6 @@ export async function getPhotoCollections() {
           coverImage: builder
             .image(collection.coverImage.image.asset._ref)
             .url(),
-          photos: collection.photos.map((photo) => {
-            return {
-              ...photo,
-              image: builder.image(photo.image.asset._ref).url(),
-            };
-          }),
         };
       });
     });
