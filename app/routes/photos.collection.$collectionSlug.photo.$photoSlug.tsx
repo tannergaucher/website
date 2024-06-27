@@ -5,6 +5,7 @@ import {
   useNavigate,
   useOutletContext,
   useParams,
+  MetaFunction,
 } from "@remix-run/react";
 import { useEffect, useState } from "react";
 
@@ -13,6 +14,16 @@ import {
   PhotoCollection,
 } from "~/models/photo-collection.server";
 import globalStyles from "~/styles/global.css?url";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Tanner Gaucher" },
+    {
+      name: "description",
+      content: "A photo by Tanner Gaucher.",
+    },
+  ];
+};
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStyles }];
