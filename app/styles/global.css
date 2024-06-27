@@ -9,7 +9,8 @@
   --thickness: 2.5px;
   --heading-family: "Outfit", sans-serif;
   --text-family: "Spline Sans", sans-serif;
-  --radius: 0rem;
+  --radius: 0.5rem;
+  --shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -55,6 +56,7 @@ main {
   border-radius: var(--radius);
   min-height: calc(100vh - 4 * var(--space-1) - 2 * var(--thickness));
   padding: var(--space-1);
+  box-shadow: var(--shadow);
 }
 
 h1,
@@ -152,4 +154,15 @@ input[type="radio"] {
 .theme-buttons input:checked {
   background-color: #000;
   color: #fff;
+}
+
+small {
+  font-weight: lighter;
+}
+
+hr {
+  border: none;
+  border-top: var(--thickness) solid var(--text-color);
+  margin-block: var(--space-1);
+  border-radius: var(--radius);
 }

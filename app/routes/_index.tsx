@@ -1,8 +1,8 @@
-import { MetaFunction } from "@remix-run/react";
+import { MetaFunction, Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
-import globalStyles from "../global.css?url";
-import pageStyles from "./index.css?url";
+import globalStyles from "~/styles/global.css?url";
+import pageStyles from "~/styles/index-page.css?url";
 
 import imgSrc from "../assets/fish-light.png";
 
@@ -35,11 +35,11 @@ export default function Index() {
         <h1>Tanner Gaucher</h1>
         <h2>Full Stack Software Developer</h2>
         <ul>
-          {/* <li>
-            <Link to="/contact">
-              <h3>Contact</h3>
+          <li>
+            <Link to="/photos">
+              <h3>Photos</h3>
             </Link>
-          </li> */}
+          </li>
           <li>
             <a
               href="https://github.com/tannergaucher"

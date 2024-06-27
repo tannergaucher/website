@@ -11,12 +11,16 @@
     "typecheck": "tsc"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.0",
     "@netlify/edge-functions": "^2.3.1",
     "@netlify/remix-edge-adapter": "^3.2.1",
     "@netlify/remix-runtime": "^2.2.0",
     "@remix-run/node": "^2.9.2",
     "@remix-run/react": "^2.9.2",
     "@remix-run/serve": "^2.9.2",
+    "@sanity/cli": "^3.47.1",
+    "@sanity/client": "^6.20.1",
+    "@sanity/image-url": "^1.0.2",
     "isbot": "^4.1.0"
   },
   "devDependencies": {
