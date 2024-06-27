@@ -27,10 +27,8 @@ type LoaderData = {
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.photoSlug) throw new Error("No id provided");
 
-  const photo = await getPhotoBySlug({ slug: params.photoSlug });
-
   return {
-    photo,
+    photo: await getPhotoBySlug({ slug: params.photoSlug }),
   };
 };
 
@@ -57,10 +55,9 @@ export default function Page() {
 
       if (!currentPhoto) return;
 
-      const prevPhoto = context[context.indexOf(currentPhoto) - 1];
-      const nextPhoto = context[context.indexOf(currentPhoto) + 1];
-
       if (event.key === "ArrowLeft") {
+        const prevPhoto = context[context.indexOf(currentPhoto) - 1];
+
         if (prevPhoto) {
           navigate(
             `/photos/collection/${params.slug}/photo/${prevPhoto.slug.current}`
@@ -69,9 +66,9 @@ export default function Page() {
       }
 
       if (event.key === "ArrowRight") {
-        if (nextPhoto) {
-          console.log("next", nextPhoto);
+        const nextPhoto = context[context.indexOf(currentPhoto) + 1];
 
+        if (nextPhoto) {
           navigate(
             `/photos/collection/${params.slug}/photo/${nextPhoto.slug.current}`
           );
