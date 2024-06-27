@@ -31,6 +31,29 @@ export const loader: LoaderFunction = async ({ params }) => {
   };
 };
 
+function getPhotoUrl({
+  photos,
+  photoSlug,
+  collectionSlug,
+  direction,
+}: {
+  photos: PhotoCollection["photos"];
+  photoSlug: string;
+  collectionSlug: string;
+  direction: "next" | "prev";
+}) {
+  const currentIndex = photos.findIndex((p) => p.slug.current === photoSlug);
+
+  if (currentIndex === -1) return null;
+
+  const nextPhoto =
+    direction === "next" ? photos[currentIndex + 1] : photos[currentIndex - 1];
+
+  if (!nextPhoto) return null;
+
+  return `/photos/collection/${collectionSlug}/photo/${nextPhoto.slug.current}`;
+}
+
 export default function Page() {
   const { photo } = useLoaderData<LoaderData>();
 
@@ -48,29 +71,34 @@ export default function Page() {
 
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
-      const currentPhoto = context.find(
-        (p) => p.slug.current === params.photoSlug?.toString()
-      );
+      const photoSlug = params.photoSlug;
+      const collectionSlug = params.slug;
 
-      if (!currentPhoto) return;
+      if (!photoSlug || !collectionSlug) return;
 
       if (event.key === "ArrowLeft") {
-        const prevPhoto = context[context.indexOf(currentPhoto) - 1];
+        const prevPhotoUrl = getPhotoUrl({
+          photos: context,
+          photoSlug,
+          collectionSlug,
+          direction: "prev",
+        });
 
-        if (prevPhoto) {
-          navigate(
-            `/photos/collection/${params.slug}/photo/${prevPhoto.slug.current}`
-          );
+        if (prevPhotoUrl) {
+          navigate(prevPhotoUrl);
         }
       }
 
       if (event.key === "ArrowRight") {
-        const nextPhoto = context[context.indexOf(currentPhoto) + 1];
+        const nextPhotoUrl = getPhotoUrl({
+          photos: context,
+          photoSlug,
+          collectionSlug,
+          direction: "next",
+        });
 
-        if (nextPhoto) {
-          navigate(
-            `/photos/collection/${params.slug}/photo/${nextPhoto.slug.current}`
-          );
+        if (nextPhotoUrl) {
+          navigate(nextPhotoUrl);
         }
       }
     };
