@@ -20,11 +20,6 @@ export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: globalStyles },
     { rel: "stylesheet", href: pageStyles },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossOrigin: "anonymous",
-    },
   ];
 };
 
