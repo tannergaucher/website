@@ -6,7 +6,13 @@ import globalStyles from "~/styles/global.css?url";
 import pageStyles from "~/styles/photos-page.css?url";
 
 export const meta: MetaFunction = () => {
-  return [{ title: "Tanner Gaucher | Photos" }];
+  return [
+    { title: "Tanner Gaucher | Photos" },
+    {
+      name: "description",
+      content: "A collection of photos taken by me.",
+    },
+  ];
 };
 
 export const links: LinksFunction = () => {
