@@ -136,18 +136,6 @@ export default function Page() {
         // Threshold for swipe action
         if (diffX > 0) {
           // Swipe left
-          const prevPhotoUrl = getPhotoUrl({
-            photos: context,
-            photoSlug,
-            collectionSlug,
-            direction: "prev",
-          });
-
-          if (prevPhotoUrl) {
-            navigate(prevPhotoUrl);
-          }
-        } else {
-          // Swipe right
           const nextPhotoUrl = getPhotoUrl({
             photos: context,
             photoSlug,
@@ -157,6 +145,18 @@ export default function Page() {
 
           if (nextPhotoUrl) {
             navigate(nextPhotoUrl);
+          }
+        } else {
+          // Swipe right
+          const prevPhotoUrl = getPhotoUrl({
+            photos: context,
+            photoSlug,
+            collectionSlug,
+            direction: "prev",
+          });
+
+          if (prevPhotoUrl) {
+            navigate(prevPhotoUrl);
           }
         }
       }
