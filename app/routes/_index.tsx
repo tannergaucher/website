@@ -1,5 +1,5 @@
-import { MetaFunction, Link } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
+import { MetaFunction, Link } from "@remix-run/react";
 
 import globalStyles from "~/styles/global.css?url";
 import pageStyles from "~/styles/index-page.css?url";

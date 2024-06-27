@@ -2,7 +2,6 @@ import { LoaderFunction, LinksFunction } from "@remix-run/node";
 import { useLoaderData, Link } from "@remix-run/react";
 
 import { getPhotoCollections } from "~/models/photo-collection.server";
-
 import globalStyles from "~/styles/global.css?url";
 import pageStyles from "~/styles/photos-page.css?url";
 

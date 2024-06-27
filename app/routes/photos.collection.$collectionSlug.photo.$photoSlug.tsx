@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
+import { Dialog, DialogPanel } from "@headlessui/react";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
 import {
   useLoaderData,
   useNavigate,
   useOutletContext,
   useParams,
 } from "@remix-run/react";
-import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-import { Dialog, DialogPanel } from "@headlessui/react";
-
-import globalStyles from "~/styles/global.css?url";
+import { useEffect, useState } from "react";
 
 import {
   getPhotoBySlug,
   PhotoCollection,
 } from "~/models/photo-collection.server";
+import globalStyles from "~/styles/global.css?url";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: globalStyles }];
