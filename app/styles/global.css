@@ -22,6 +22,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  :root {
+    --space-1: 1rem;
+  }
+}
+
 h1 {
   font-weight: lighter;
   font-size: xx-large;

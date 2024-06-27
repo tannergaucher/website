@@ -20,3 +20,9 @@ article {
   padding: var(--space-1);
   box-shadow: var(--shadow);
 }
+
+@media (max-width: 768px) {
+  .collections-grid {
+    grid-template-columns: 1fr;
+  }
+}
