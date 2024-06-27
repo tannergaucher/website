@@ -6,7 +6,6 @@ import {
   useParams,
 } from "@remix-run/react";
 import type { LinksFunction, LoaderFunction } from "@remix-run/node";
-
 import { Dialog, DialogPanel } from "@headlessui/react";
 
 import globalStyles from "~/styles/global.css?url";
