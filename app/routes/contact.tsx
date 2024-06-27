@@ -4,14 +4,7 @@ import { Link } from "@remix-run/react";
 import globalStyles from "~/styles/global.css?url";
 
 export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: globalStyles },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossOrigin: "anonymous",
-    },
-  ];
+  return [{ rel: "stylesheet", href: globalStyles }];
 };
 
 export const action = async ({ request }: ActionFunctionArgs) => {

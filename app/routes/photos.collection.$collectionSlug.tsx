@@ -1,9 +1,19 @@
 import { LoaderFunction, LinksFunction } from "@remix-run/node";
-import { useLoaderData, Link, Outlet } from "@remix-run/react";
+import { useLoaderData, Link, Outlet, MetaFunction } from "@remix-run/react";
 
 import { getPhotoCollectionBySlug } from "~/models/photo-collection.server";
 import globalStyles from "~/styles/global.css?url";
 import pageStyles from "~/styles/photos-collection-page.css?url";
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "Tanner Gaucher" },
+    {
+      name: "description",
+      content: "A collection of photos by Tanner Gaucher.",
+    },
+  ];
+};
 
 export const links: LinksFunction = () => {
   return [

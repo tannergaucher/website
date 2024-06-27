@@ -4,7 +4,7 @@ import { MetaFunction, Link } from "@remix-run/react";
 import globalStyles from "~/styles/global.css?url";
 import pageStyles from "~/styles/index-page.css?url";
 
-import imgSrc from "../assets/fish-light.png";
+import imgSrc from "../assets/fish-light.webp";
 
 export const meta: MetaFunction = () => {
   return [
@@ -20,11 +20,6 @@ export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: globalStyles },
     { rel: "stylesheet", href: pageStyles },
-    {
-      rel: "preconnect",
-      href: "https://fonts.gstatic.com",
-      crossOrigin: "anonymous",
-    },
   ];
 };
 
@@ -55,6 +50,8 @@ export default function Index() {
         src={imgSrc}
         className="hero-image"
         alt="Grainy B&W koi fish in Japan"
+        width={300}
+        height={300}
       />
       <p className="bio">
         Based in Brooklyn, New York. Current location Hanoi, Vietnam. Passionate

@@ -39,7 +39,6 @@ export async function getPhotoCollections() {
      slug,
      description,
      coverImage->,
-     photos[]->,
      }`
     )
     .then((collections) => {
@@ -48,13 +47,10 @@ export async function getPhotoCollections() {
           ...collection,
           coverImage: builder
             .image(collection.coverImage.image.asset._ref)
+            .width(600)
+            .quality(100)
+            .format("webp")
             .url(),
-          photos: collection.photos.map((photo) => {
-            return {
-              ...photo,
-              image: builder.image(photo.image.asset._ref).url(),
-            };
-          }),
         };
       });
     });
@@ -77,7 +73,12 @@ export async function getPhotoCollectionBySlug({ slug }: { slug: string }) {
     photos: collection.photos.map((photo) => {
       return {
         ...photo,
-        image: builder.image(photo.image.asset._ref).url(),
+        image: builder
+          .image(photo.image.asset._ref)
+          .width(600)
+          .format("webp")
+          .quality(100)
+          .url(),
       };
     }),
   };
@@ -97,6 +98,11 @@ export async function getPhotoBySlug({ slug }: { slug: string }) {
 
   return {
     ...photo,
-    image: builder.image(photo.image.asset._ref).url(),
+    image: builder
+      .image(photo.image.asset._ref)
+      .width(2000)
+      .quality(100)
+      .format("webp")
+      .url(),
   };
 }

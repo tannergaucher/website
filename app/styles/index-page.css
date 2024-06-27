@@ -26,12 +26,12 @@ img {
 }
 
 .hero-image {
-  content: url("../assets/fish-light.png");
+  content: url("../assets/fish-light.webp");
 }
 
 @media (prefers-color-scheme: dark) {
   .hero-image {
-    content: url("../assets/fish-dark.png");
+    content: url("../assets/fish-dark.webp");
   }
 }
 
