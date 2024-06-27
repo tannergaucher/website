@@ -1,8 +1,8 @@
 import imageUrlBuilder from "@sanity/image-url";
 
-import { client } from "~/sanity-client";
+import { photosClient } from "~/sanity";
 
-const builder = imageUrlBuilder(client);
+const builder = imageUrlBuilder(photosClient);
 
 export interface PhotoCollection {
   _id: string;
@@ -31,7 +31,7 @@ export interface PhotoCollection {
 }
 
 export async function getPhotoCollections() {
-  return await client
+  return await photosClient
     .fetch<PhotoCollection[]>(
       `*[_type == 'collection']{
      _id,
@@ -61,7 +61,7 @@ export async function getPhotoCollections() {
 }
 
 export async function getPhotoCollectionBySlug({ slug }: { slug: string }) {
-  const [collection] = await client.fetch<PhotoCollection[]>(
+  const [collection] = await photosClient.fetch<PhotoCollection[]>(
     `*[_type == 'collection' && slug.current == $slug]{
       _id,
       title,
@@ -84,7 +84,7 @@ export async function getPhotoCollectionBySlug({ slug }: { slug: string }) {
 }
 
 export async function getPhotoBySlug({ slug }: { slug: string }) {
-  const [photo] = await client.fetch<PhotoCollection["photos"]>(
+  const [photo] = await photosClient.fetch<PhotoCollection["photos"]>(
     `*[_type == 'photo' && slug.current == $slug]{
       _id,
       title,
