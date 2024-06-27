@@ -6,6 +6,8 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import heroSrc from "~/assets/fish-light.webp";
+
 export default function App() {
   return (
     <html lang="en">
@@ -19,6 +21,7 @@ export default function App() {
           href="https://fonts.googleapis.com"
           crossOrigin="anonymous"
         />
+        <link rel="preload" href={heroSrc} as="image" />
       </head>
       <body>
         <Outlet />
