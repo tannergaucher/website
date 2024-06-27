@@ -48,11 +48,10 @@ export default function Page() {
     <main>
       <h1>
         <Link to="/">Tanner Gaucher</Link> {">"}{" "}
-        <Link to="/photos">Photos</Link>
+        <Link to="/photos">Photos</Link> {">"}{" "}
+        <Link to="#">{collection.title}</Link>
       </h1>
-      <h1>{collection.title}</h1>
-      <p>{collection.description}</p>
-      <hr />
+      <h2>{collection.description}</h2>
       <div className="photos-grid">
         {collection.photos.map((photo) => (
           <Link
