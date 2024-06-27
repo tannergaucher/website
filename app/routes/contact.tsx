@@ -1,5 +1,5 @@
-import { Link } from "@remix-run/react";
 import type { ActionFunctionArgs, LinksFunction } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 
 import globalStyles from "~/styles/global.css?url";
 
