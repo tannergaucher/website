@@ -118,6 +118,42 @@ button:hover {
   transition: background-color 0.2s, color 0.2s;
 }
 
+button[role="switch"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(4rem - 2 * var(--thickness));
+  width: calc(2rem - 2 * var(--thickness));
+  cursor: pointer;
+  border-radius: 1rem;
+  background-color: var(--bg-2);
+  padding: 0.25rem;
+  transition: background-color 0.2s, color 0.2s;
+  outline: none;
+  border: none;
+}
+
+button[role="switch"]::before {
+  content: "";
+  display: block;
+  height: 1.25rem;
+  width: 1.25rem;
+  border-radius: 50%;
+  background-color: var(--bg-1);
+  transition: transform 0.2s;
+  transform: translateY(-1rem);
+}
+
+/* and lets move the knob left and right depending on data-checked */
+button[role="switch"][data-checked]::before {
+  transform: translateY(1rem);
+}
+
+button[role="switch"]:hover {
+  background-color: hsla(0deg 0% 100% / 20%);
+  transition: background-color 0.2s, color 0.2s;
+}
+
 input,
 textarea {
   padding: calc(var(--space-1) / 2);
