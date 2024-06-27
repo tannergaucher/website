@@ -71,12 +71,12 @@ export default function Page() {
 
   // handle left and right arrow keys to navigate between photos
   useEffect(() => {
+    const photoSlug = params.photoSlug;
+    const collectionSlug = params.collectionSlug;
+
+    if (!photoSlug || !collectionSlug) return;
+
     const handleKeyPress = (event: KeyboardEvent) => {
-      const photoSlug = params.photoSlug;
-      const collectionSlug = params.collectionSlug;
-
-      if (!photoSlug || !collectionSlug) return;
-
       if (event.key === "ArrowLeft") {
         const prevPhotoUrl = getPhotoUrl({
           photos: context,
