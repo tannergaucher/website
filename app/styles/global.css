@@ -10,7 +10,7 @@
   --heading-family: "Outfit", sans-serif;
   --text-family: "Spline Sans", sans-serif;
   --radius: 0.5rem;
-  --shadow: 0 0 0.5rem 0.25rem rgba(0, 0, 0, 0.1);
+  --shadow: 0 0 0.5rem 0.25rem hsla(0deg 0% 0% 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,7 +22,7 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (width <= 768px) {
   :root {
     --space-1: 1rem;
   }
@@ -101,7 +101,6 @@ fieldset {
 button {
   margin-block: var(--space-1);
   padding: calc(var(--space-1) / 2);
-  font-family: var(--text-family);
   background-color: var(--accent-color);
   color: var(--bg-1);
   font-size: large;
@@ -139,27 +138,6 @@ textarea:focus {
 
 input[type="radio"] {
   margin: 0;
-}
-
-.theme-buttons {
-  position: fixed;
-  bottom: var(--space-1);
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  width: var(--space-1);
-  background-color: var(--bg-1);
-  z-index: 2;
-}
-
-.theme-buttons input {
-  padding: var(--space-1);
-}
-
-.theme-buttons input:active,
-.theme-buttons input:checked {
-  background-color: #000;
-  color: #fff;
 }
 
 small {
