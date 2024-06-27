@@ -50,6 +50,8 @@ export default function Index() {
         src={imgSrc}
         className="hero-image"
         alt="Grainy B&W koi fish in Japan"
+        width={300}
+        height={300}
       />
       <p className="bio">
         Based in Brooklyn, New York. Current location Hanoi, Vietnam. Passionate
