@@ -98,6 +98,11 @@ export async function getPhotoBySlug({ slug }: { slug: string }) {
 
   return {
     ...photo,
-    image: builder.image(photo.image.asset._ref).url(),
+    image: builder
+      .image(photo.image.asset._ref)
+      .width(2000)
+      .quality(100)
+      .format("webp")
+      .url(),
   };
 }
