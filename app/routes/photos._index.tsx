@@ -27,7 +27,7 @@ export const loader: LoaderFunction = async () => {
 };
 
 export default function Page() {
-  const data = useLoaderData<LoaderData>();
+  const { collections } = useLoaderData<LoaderData>();
 
   return (
     <main>
@@ -35,19 +35,13 @@ export default function Page() {
         <Link to="/">Tanner Gaucher</Link> {">"} Photos
       </h1>
       <div className="collections-grid">
-        {data.collections.map((collection) => (
+        {collections.map((collection) => (
           <Link
             to={`/photos/collection/${collection.slug.current}`}
             key={collection._id}
           >
             <article>
-              <img
-                src={collection.coverImage}
-                alt={collection.title}
-                style={{
-                  width: "500px",
-                }}
-              />
+              <img src={collection.coverImage} alt={collection.title} />
               <p>{collection.title}</p>
               <small>{collection.description}</small>
             </article>
