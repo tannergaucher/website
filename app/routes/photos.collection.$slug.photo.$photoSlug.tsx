@@ -69,6 +69,7 @@ export default function Page() {
     setIsOpen(true);
   }, [photo]);
 
+  // handle left and right arrow keys to navigate between photos
   useEffect(() => {
     const handleKeyPress = (event: KeyboardEvent) => {
       const photoSlug = params.photoSlug;
@@ -107,6 +108,68 @@ export default function Page() {
 
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [context, navigate, params.photoSlug, params.slug]);
+
+  // handle swipe left and right to navigate between photos
+  useEffect(() => {
+    let startX: number;
+    let endX: number;
+
+    const photoSlug = params.photoSlug;
+    const collectionSlug = params.slug;
+
+    if (!photoSlug || !collectionSlug) return;
+
+    const handleTouchStart = (event: TouchEvent) => {
+      startX = event.touches[0].clientX;
+    };
+
+    const handleTouchMove = (event: TouchEvent) => {
+      endX = event.touches[0].clientX;
+    };
+
+    const handleTouchEnd = () => {
+      const diffX = startX - endX;
+
+      if (Math.abs(diffX) > 100) {
+        // Threshold for swipe action
+        if (diffX > 0) {
+          // Swipe left
+          const prevPhotoUrl = getPhotoUrl({
+            photos: context,
+            photoSlug,
+            collectionSlug,
+            direction: "prev",
+          });
+
+          if (prevPhotoUrl) {
+            navigate(prevPhotoUrl);
+          }
+        } else {
+          // Swipe right
+          const nextPhotoUrl = getPhotoUrl({
+            photos: context,
+            photoSlug,
+            collectionSlug,
+            direction: "next",
+          });
+
+          if (nextPhotoUrl) {
+            navigate(nextPhotoUrl);
+          }
+        }
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchmove", handleTouchMove);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
     };
   }, [context, navigate, params.photoSlug, params.slug]);
 
