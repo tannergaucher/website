@@ -73,7 +73,12 @@ export async function getPhotoCollectionBySlug({ slug }: { slug: string }) {
     photos: collection.photos.map((photo) => {
       return {
         ...photo,
-        image: builder.image(photo.image.asset._ref).url(),
+        image: builder
+          .image(photo.image.asset._ref)
+          .width(600)
+          .format("webp")
+          .quality(100)
+          .url(),
       };
     }),
   };
