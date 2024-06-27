@@ -184,48 +184,46 @@ export default function Page() {
   }, [context, navigate, params.photoSlug, params.collectionSlug]);
 
   return (
-    <div>
-      <div
-        role="dialog"
+    <Dialog
+      open={isOpen}
+      onClose={() => setIsOpen(false)}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        zIndex: 999,
+        display: isOpen ? "block" : "none",
+      }}
+    >
+      <DialogPanel
         style={{
           position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundColor: "rgba(0, 0, 0, 0.5)",
-          zIndex: 999,
-          display: isOpen ? "block" : "none",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          zIndex: 1000,
+          width: "100vmin",
+          overflow: "auto",
+          backgroundColor: "var(--bg-2)",
+          padding: "var(--space-1)",
+          borderRadius: "var(--radius)",
+          boxShadow: "var(--shadow)",
         }}
-      />
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
-        <DialogPanel
+      >
+        <img
+          src={photo.image}
+          alt=""
           style={{
-            position: "fixed",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            zIndex: 1000,
-            width: "100vmin",
-            overflow: "auto",
-            backgroundColor: "var(--bg-2)",
-            padding: "var(--space-1)",
+            width: "100%",
+            height: "auto",
             borderRadius: "var(--radius)",
             boxShadow: "var(--shadow)",
           }}
-        >
-          <img
-            src={photo.image}
-            alt=""
-            style={{
-              width: "100%",
-              height: "auto",
-              borderRadius: "var(--radius)",
-              boxShadow: "var(--shadow)",
-            }}
-          />
-        </DialogPanel>
-      </Dialog>
-    </div>
+        />
+      </DialogPanel>
+    </Dialog>
   );
 }
