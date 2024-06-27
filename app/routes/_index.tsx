@@ -4,7 +4,7 @@ import { MetaFunction, Link } from "@remix-run/react";
 import globalStyles from "~/styles/global.css?url";
 import pageStyles from "~/styles/index-page.css?url";
 
-import imgSrc from "../assets/fish-light.png";
+import imgSrc from "../assets/fish-light.webp";
 
 export const meta: MetaFunction = () => {
   return [
