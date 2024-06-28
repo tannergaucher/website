@@ -6,13 +6,6 @@ main {
   align-items: center;
 }
 
-img {
-  max-width: 100%;
-  grid-area: "image";
-  align-self: center;
-  border-radius: var(--radius);
-}
-
 .intro {
   grid-area: "intro";
   align-self: start;
@@ -21,12 +14,15 @@ img {
 .bio {
   line-height: 1.5;
   grid-area: "bio";
-  align-self: end;
   max-width: 250px;
+  place-self: end end;
 }
 
 .hero-image {
   content: url("../assets/fish-light.webp");
+  max-width: 100%;
+  grid-area: "image";
+  justify-self: center;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,7 +47,7 @@ img {
 
   .bio {
     justify-self: center;
-    text-align: start;
+    text-align: justify;
   }
 
   img {
