@@ -40,14 +40,10 @@ main {
       "bio";
   }
 
-  .intro {
-    justify-self: center;
-    text-align: center;
-  }
-
+  .intro,
   .bio {
     justify-self: center;
-    text-align: justify;
+    text-align: center;
   }
 
   img {
