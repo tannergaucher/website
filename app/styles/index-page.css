@@ -18,6 +18,10 @@ main {
   place-self: end end;
 }
 
+.strike-through {
+  text-decoration: line-through;
+}
+
 .hero-image {
   content: url("../assets/fish-light.webp");
   max-width: 100%;
