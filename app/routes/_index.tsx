@@ -54,10 +54,12 @@ export default function Index() {
         height={300}
       />
       <p className="bio">
-        Based in Brooklyn, New York. Current location Hanoi, Vietnam. Passionate
-        generalist, equally comfortable solving problems on both sides of the
-        stack. Other computational interests include history of computer science
-        and exploring parallels between computation and the natural world.
+        Currently based in{" "}
+        <span className="strike-through">Brooklyn, New York</span> Hanoi,
+        Vietnam. Passionate generalist, equally comfortable solving problems on
+        both sides of the stack. Other computational interests include history
+        of computer science and exploring parallels between computation and the
+        natural world.
       </p>
     </main>
   );
