@@ -209,7 +209,6 @@ export default function Page() {
           overflow: "auto",
           backgroundColor: "var(--bg-2)",
           padding: "var(--space-1)",
-          borderRadius: "var(--radius)",
           boxShadow: "var(--shadow)",
         }}
       >
@@ -219,7 +218,6 @@ export default function Page() {
           style={{
             width: "100%",
             height: "auto",
-            borderRadius: "var(--radius)",
             boxShadow: "var(--shadow)",
           }}
         />
